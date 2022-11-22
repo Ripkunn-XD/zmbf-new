@@ -593,7 +593,7 @@ def metode_api(user,pwx):
 				open(f"CP/{hari_ini}.txt","a").write("  * --> %s|%s\n"%(user, pw))
 				break
 		loop+=1
-	except:
+	except requests.exceptions.ConnectionError:
 		sleep(32)
 
 ###----------[ METODE CRACK ]---------- ###
@@ -667,9 +667,8 @@ def metode_reguler(user, pwx, url):
 				open(f"CP/{hari_ini}.txt","a").write("  * --> %s|%s\n"%(user, pw))
 				break
 		loop+=1
-	except Exception as e:
-		print(e)
-		#sleep(32)
+	except requests.exceptions.ConnectionError:
+		sleep(32)
 
 	
 def metode_validate(user, pwx, url):
